@@ -1,10 +1,11 @@
 from sodapy import Socrata
 import json
+import argparse
 
 #Define Main Function For NYC Parking Violation Data Collection & Output
 def main(page_size,num_pages,output):
 	client = Socrata("data.cityofnewyork.us",APP_KEY) #APP_KEY is APP_TOKEN from Socrata
-	offset = 0
+	off_set = 0
 
 	# If statement to define number of calls if input not provided by user
 	if num_pages == False:
@@ -30,10 +31,14 @@ def main(page_size,num_pages,output):
 				json.dump(i, outfile)
 				outfile.write('\n')
 		off_set += page_size
-		
 
+# Define and parse Commmandline arguments from user
+parser = argparse.ArgumentParser(description = 'Inputs for Parking Violation Data Collection')
+parser.add_argument('--page_size',type = int, required =True, help = 'Required Argument: Input number of data records to pull in one call')
+parser.add_argument('--num_pages', type = int, default = False,help = 'Optional Argument: Input number of calls to perform on the dataset')
+parser.add_argument('--output', type = str, default = False,help = 'Optional Argument: Provide *.json file name to save data in file')
+		
+# Pass the argument inputs to the main function
 if __name__ == '__main__':
-	p = 10
-	n = 5
-	o = "results.json"
-	main(p,n,o)
+	args = parser.parse_args()
+	main(**vars(args))
