@@ -1,4 +1,5 @@
 from sodapy import Socrata
+import json
 
 #Define Main Function For NYC Parking Violation Data Collection & Output
 def main(page_size,num_pages,output):
