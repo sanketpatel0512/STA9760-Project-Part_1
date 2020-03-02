@@ -1,10 +1,11 @@
 from sodapy import Socrata
 import json
 import argparse
+import os
 
 #Define Main Function For NYC Parking Violation Data Collection & Output
 def main(page_size,num_pages,output):
-	client = Socrata("data.cityofnewyork.us",APP_KEY) #APP_KEY is APP_TOKEN from Socrata
+	client = Socrata("data.cityofnewyork.us",dict(os.environ)["APP_KEY"]) #APP_KEY is APP_TOKEN from Socrata
 	off_set = 0
 
 	# If statement to define number of calls if input not provided by user
