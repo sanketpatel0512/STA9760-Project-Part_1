@@ -10,6 +10,11 @@ In this part of the project, we are creating a docker container with a python co
 3. Github Account
 4. AWS account (if operating on an EC2 machine)
 
+### Links to Repositories
+
+Github: https://github.com/sanketpatel0512/STA9760-Project-Part_1
+Dockerhub: https://hub.docker.com/r/patelsanket0589/bigdata1
+
 ### Run container from DockerHub
 #### Install Docker (If not already installed)
 
