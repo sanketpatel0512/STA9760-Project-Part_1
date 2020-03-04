@@ -16,8 +16,7 @@ def main(page_size,num_pages,output):
 
 	# Open Output file provided by user		
 	if output != False:
-		filepath = os.path.join("/app/outputs", output)
-		outfile = open(filepath, 'w')
+		outfile = open(output, 'w')
 
 	#For loop to Call Data from NYC Open Data
 	for i in range(num_pages):
